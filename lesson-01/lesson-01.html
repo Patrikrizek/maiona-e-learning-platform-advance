@@ -62,7 +62,7 @@
                 const codingGrade = document.getElementById('codingGrade').value;
 
                 const textRegex = /^[a-zA-Z]+$/;
-                const numberRegex = /[1-5]{1}/;
+                const numberRegex = /^[1-5]$/;
 
                 if (!textRegex.test(firstName)) {
                     document.getElementById('firstName').focus(); alert("Please enter First name correctly. Only letters are allowed.");
@@ -103,7 +103,7 @@
 
             function resetValues() {
                 const resetFirstName = document.getElementById('firstName').value = null;
-                const resetLastName = document.getElementById('codingGrade').value = null;
+                const resetCodingGrade = document.getElementById('codingGrade').value = null;
 
                 document.getElementById('firstName').focus();
             }
