@@ -52,7 +52,21 @@
       }
        
       class TodoApp extends React.Component {
-        state = { items:[], text: '' };
+        constructor() {
+          super();
+          this.state = { items:[], text: '' };
+          this.handleChange = this.handleChange.bind(this);
+          this.handleSubmit = this.handleSubmit.bind(this);
+        }
+
+        handleChange(e) {
+          console.log('handleChange');
+        }
+        
+        handleSubmit(e) {
+          e.preventDefault();
+          console.log('handleSubmit');
+        }
         
         render() {
           console.log(this.state);
@@ -61,10 +75,16 @@
             <div className="container-fluid m-3">
               <h2>To do list</h2>
   
-              <form>
+              <form onSubmit={this.handleSubmit}>
                 <div className="mb-3">
                   <label className="form-label">Insert a new task</label>
-                  <input type="text" className="form-control w-25" id="newTask"  />
+                  <input
+                    type="text"
+                    className="form-control w-25"
+                    id="newTask"
+                    onChange={this.handleChange}
+                    value={this.state.text}
+                  />
                 </div>
   
                 <button type="submit" className="btn btn-primary">Add Task #{this.state.items.length + 1}</button>
