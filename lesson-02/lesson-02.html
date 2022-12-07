@@ -26,6 +26,8 @@
             <NavBar />
             
             <Main name='Patrick'/>
+            
+            <TodoApp />
 
             <Footer />
         </React.Fragment>);
@@ -46,6 +48,31 @@
           <main className="container-fluid m-3">
               <h1>Hello, {props.name}!</h1>
           </main>
+        );
+      }
+       
+      function TodoApp() {
+        return (
+          <div className="container-fluid m-3">
+            <h2>To do list</h2>
+
+            <form>
+              <div className="mb-3">
+                <label className="form-label">Insert a new task</label>
+                <input type="text" className="form-control w-25" id="newTask"  />
+              </div>
+
+              <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
+
+            <br />
+
+            <ul>
+              <li>Task #01</li>
+              <li>Task #02</li>
+              <li>Task #03</li>
+            </ul>
+          </div>
         );
       }
 
