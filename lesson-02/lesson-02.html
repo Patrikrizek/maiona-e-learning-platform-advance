@@ -23,20 +23,34 @@
       function MyApp() {
         return (
           <React.Fragment>
-            <nav className="container-fluid m-2 nav">
-              <a className="nav-link" href="/index.html">Introduction</a>
-              <a className="nav-link" href="/lesson-01/lesson-01.html">Lesson 01</a>
-              <a className="nav-link" href="/lesson-02/lesson-02.html">Lesson 02</a>
-            </nav>
-        
+            <NavBar />
+            
             <main className="container-fluid m-3">
               <h1>Hello, world!</h1>
             </main>
 
-            <footer className="fixed-bottom" >
-              <p className="text-center m-3">Copyright: 2022 &copy; All rights reserved.</p>
-            </footer>
+            <Footer />
         </React.Fragment>);
+      }
+
+      function NavBar() {
+        return (
+          <nav className="container-fluid m-2 nav">
+              <a className="nav-link" href="/index.html">Introduction</a>
+              <a className="nav-link" href="/lesson-01/lesson-01.html">Lesson 01</a>
+              <a className="nav-link" href="/lesson-02/lesson-02.html">Lesson 02</a>
+          </nav>
+        );
+      }
+
+      function Footer() {
+        const currentYear = new Date().getFullYear();
+
+        return (
+          <footer className="fixed-bottom" >
+            <p className="text-center m-3">Copyright: {currentYear} &copy; All rights reserved.</p>
+          </footer>
+        );
       }
 
       const container = document.getElementById('root');
