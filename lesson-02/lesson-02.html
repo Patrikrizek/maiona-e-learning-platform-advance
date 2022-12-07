@@ -25,9 +25,7 @@
           <React.Fragment>
             <NavBar />
             
-            <main className="container-fluid m-3">
-              <h1>Hello, world!</h1>
-            </main>
+            <Main name='Patrick'/>
 
             <Footer />
         </React.Fragment>);
@@ -40,6 +38,14 @@
               <a className="nav-link" href="/lesson-01/lesson-01.html">Lesson 01</a>
               <a className="nav-link" href="/lesson-02/lesson-02.html">Lesson 02</a>
           </nav>
+        );
+      }
+
+      function Main(props) {
+        return (
+          <main className="container-fluid m-3">
+              <h1>Hello, {props.name}!</h1>
+          </main>
         );
       }
 
