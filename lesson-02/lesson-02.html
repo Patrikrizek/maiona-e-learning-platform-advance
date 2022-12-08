@@ -52,8 +52,8 @@
       }
        
       class TodoApp extends React.Component {
-        constructor() {
-          super();
+        constructor(props) {
+          super(props);
           this.state = { items:[], text: '' };
           this.handleChange = this.handleChange.bind(this);
           this.handleSubmit = this.handleSubmit.bind(this);
@@ -78,7 +78,7 @@
             items: state.items.concat(newItem),
             text: ''
           }));
-          
+
           console.log('handleSubmit', 'state.items:', this.state.items);
         }
         
@@ -103,21 +103,23 @@
               </form>
   
               <br />
-              <TodoList />
+              <TodoList items={this.state.items}/>
             </div>
           );
         }
       }
 
           
-      function TodoList() {
-        return (
-          <ul>
-            <li>Task #01</li>
-            <li>Task #02</li>
-            <li>Task #03</li>
-          </ul>
-        );
+      class TodoList extends React.Component {
+        render() {
+          return (
+            <ul>
+              {this.props.items.map(item => (
+                <li key={item.id}>{item.text}</li>
+              ))}
+            </ul>
+          );
+        }
       }
 
       function Footer() {
