@@ -66,7 +66,20 @@
         
         handleSubmit(e) {
           e.preventDefault();
-          console.log('handleSubmit');
+          
+          if (this.state.text.length === 0) { return; }
+          
+          const newItem = {
+            text: this.state.text,
+            id: Date.now()
+          };
+          
+          this.setState(state => ({
+            items: state.items.concat(newItem),
+            text: ''
+          }));
+          
+          console.log('handleSubmit', 'state.items:', this.state.items);
         }
         
         render() {
