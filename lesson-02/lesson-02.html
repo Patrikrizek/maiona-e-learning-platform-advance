@@ -60,7 +60,8 @@
         }
 
         handleChange(e) {
-          console.log('handleChange');
+          console.log('handleChange', 'state.text:', this.state.text);
+          this.setState({ text: e.target.value });
         }
         
         handleSubmit(e) {
@@ -69,8 +70,6 @@
         }
         
         render() {
-          console.log(this.state);
-
           return (
             <div className="container-fluid m-3">
               <h2>To do list</h2>
